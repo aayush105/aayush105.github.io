@@ -3,7 +3,7 @@ import { Link as LinkR } from "react-router-dom";
 import styled, { useTheme } from "styled-components";
 import { Bio } from "../data/constants";
 import { MenuRounded } from "@mui/icons-material";
-import logo from '../images/aayush7.png';
+import logo from "../images/aayush7.png";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -136,17 +136,17 @@ const Navbar = () => {
     <Nav>
       <NavbarContainer>
         <NavLogo to="/">
-          <a 
+          <a
             href="/"
-            style={{ 
-              display: "flex", 
-              alignItems: "center", 
-              color: "white", 
-              marginBottom: '20;', 
-              cursor: 'pointer' 
+            style={{
+              display: "flex",
+              alignItems: "center",
+              color: "white",
+              marginBottom: "20;",
+              cursor: "pointer",
             }}
           >
-             <img src={logo} alt="Aayush Shrestha" width="150" height="40" />
+            <img src={logo} alt="Aayush Shrestha" width="150" height="40" />
           </a>
         </NavLogo>
 

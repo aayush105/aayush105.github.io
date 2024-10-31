@@ -1,4 +1,4 @@
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { darkTheme } from "./utils/Themes";
 import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
@@ -14,48 +14,47 @@ import ProjectDetails from "./components/Dialog/ProjectDetails";
 import { useState } from "react";
 import ScrollButton from "./components/TopScrollButton";
 
-const Body = styled.div`
-  background-color: ${({ theme }) => theme.bg};
-  width: 100%;
-  overflow-x: hidden;
-  position: relative;
-`;
-
-const Wrapper = styled.div`
-  padding-bottom: 100px;
-  background: linear-gradient(
-      38.73deg,
-      rgba(204, 0, 187, 0.15) 0%,
-      rgba(201, 32, 184, 0) 50%
-    ),
-    linear-gradient(
-      141.27deg,
-      rgba(0, 70, 209, 0) 50%,
-      rgba(0, 70, 209, 0.15) 100%
-    );
-  width: 100%;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%);
-`;
-
 function App() {
   const [openModal, setOpenModal] = useState({ state: false, project: null });
+
   return (
     <ThemeProvider theme={darkTheme}>
       <BrowserRouter>
         <Navbar />
-        <Body>
+        <div
+          className="w-full relative overflow-x-hidden"
+          style={{ backgroundColor: darkTheme.bg }}
+        >
           <StarCanvas />
           <AnimatePresence>
             <div>
               <Hero />
-              <Wrapper>
+
+              <div
+                className="w-full pb-24"
+                style={{
+                  background: `linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%), 
+                              linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.15) 100%)`,
+                  clipPath: `polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)`,
+                }}
+              >
                 <Skills />
                 <Experience />
-              </Wrapper>
+              </div>
+
               <Projects openModal={openModal} setOpenModal={setOpenModal} />
-              <Wrapper>
+
+              <div
+                className="w-full pb-24"
+                style={{
+                  background: `linear-gradient(38.73deg, rgba(204, 0, 187, 0.15) 0%, rgba(201, 32, 184, 0) 50%), 
+                              linear-gradient(141.27deg, rgba(0, 70, 209, 0) 50%, rgba(0, 70, 209, 0.15) 100%)`,
+                  clipPath: `polygon(0 0, 100% 0, 100% 100%, 30% 98%, 0 100%)`,
+                }}
+              >
                 <Education />
-              </Wrapper>
+              </div>
+
               <Footer />
               <ScrollButton />
 
@@ -67,7 +66,7 @@ function App() {
               )}
             </div>
           </AnimatePresence>
-        </Body>
+        </div>
       </BrowserRouter>
     </ThemeProvider>
   );

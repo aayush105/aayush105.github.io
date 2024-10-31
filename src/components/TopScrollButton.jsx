@@ -1,22 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { FaArrowCircleUp } from 'react-icons/fa';
-import styled from 'styled-components';
-
-export const Button = styled.div`
-  position: fixed;
-  width: 50px; 
-  right: 5%;
-  bottom: 40px;
-  height: 50px;
-  font-size: 2rem;
-  z-index: 1;
-  cursor: pointer;
-  color: white;
-  transform: translateX(-50%);
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-`;
+import React, { useState, useEffect } from "react";
+import { FaArrowCircleUp } from "react-icons/fa";
 
 const ScrollButton = () => {
   const [visible, setVisible] = useState(false);
@@ -33,7 +16,7 @@ const ScrollButton = () => {
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   };
 
@@ -42,20 +25,22 @@ const ScrollButton = () => {
       toggleVisible();
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <Button>
-      <FaArrowCircleUp
-        onClick={scrollToTop}
-        style={{ display: visible ? 'block' : 'none' }}
-      />
-    </Button>
+    <div
+      className={`fixed w-12 h-12 right-5 bottom-10 z-10 cursor-pointer text-white transform transition-transform duration-300 ease-in-out ${
+        visible ? "block" : "hidden"
+      }`}
+      onClick={scrollToTop}
+    >
+      <FaArrowCircleUp size={36} className=" hover:text-custom-primary" />
+    </div>
   );
 };
 

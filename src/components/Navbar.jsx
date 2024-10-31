@@ -19,7 +19,7 @@ const Navbar = () => {
           className="flex items-center w-4/5 px-1 text-lg font-semibold text-white"
         >
           <a href="/" className="flex items-center">
-            <img src={logo} alt="Aayush Shrestha" width="150" height="40" />
+            <img src={logo} alt="Aayush" width="150" height="40" />
           </a>
         </LinkR>
 
